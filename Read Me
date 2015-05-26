@@ -1,0 +1,15 @@
+Sir,
+
+For Pupil Detection , I followed these steps :-
+
+1) Used Viola Jones for eye detection. EyeDetection() function in code does this job.
+
+2) After successfully detecting eyes,  I did some pruning to remove irrelevant part (Eyebrows ) from the detected part.
+
+3) Now After Detecting Eye, I tried to extract pupil out of it. PupilDetection() function in code does this job. 
+	-First convert the image into grayScale.   
+	-We know that in our eyes /eyeball, Pupil has Less intensity pixels (Black in GrayScale image ). So I converted the grayscale image 		 into binary image. For threshold, if pixel's intensity value is within the minIntensity pixel + K (where K is some factor like 4, 5) 		 then I would include this pixel into ROI.
+    	-After having Binary image, I Used Contour Detection. By Contour detection, I got all objects in Binary Image.
+    	-From all detected object, Eliminate unwanted one on the basis of certain parameter. I used 'area' to eliminate undesirable thing.
+
+4) After successfully detecting Pupil, just Displayed it on the original image by drawing circle around it.  
